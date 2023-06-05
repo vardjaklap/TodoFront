@@ -1,4 +1,4 @@
-# PTodo tasks
+# Todo tasks
 
 ## Description
 This application handles the modification and storing of simple tasks
