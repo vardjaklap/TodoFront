@@ -1,0 +1,42 @@
+
+  <div class="card">
+    <div class="card-body" >
+      <h5 class="card-title">Task List</h5>
+      <ul  *ngFor="let task of tasks;index as i;"  class="list-group rounded-0">
+        <app-todo-task [task]="task" (update)="onTaskUpdated($event)" (delete)="onTaskDeleted(task)"></app-todo-task>
+      </ul>
+      <!-- Button to add a new task -->
+      <button class="btn btn-primary" *ngIf="!newTaskCreating" (click)="addNewTask()">Add New Task</button>
+      <div class="form-group" [formGroup]="taskForm" *ngIf="newTaskCreating">
+
+        <div class="mb-1">
+          <label for="title">Title: </label> <br>
+          <input   class="form-control" id="title" type="text" formControlName="title">
+        </div>
+        <div class="mb-2">
+          <label for="description">Description: </label> <br>
+          <textarea class="form-control" id="description" type="text" formControlName="description"></textarea>
+        </div>
+
+        <div *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+             class="alert alert-danger">
+          <div *ngIf="title?.errors?.['required']">
+            Title is required.
+          </div>
+          <div *ngIf="title?.errors?.['maxlength']">
+            Title must not exceed 20 characters
+          </div>
+      </div>
+        <div *ngIf="description?.invalid && (description?.dirty || description?.touched)"
+             class="alert alert-danger">
+          <div *ngIf="description?.errors?.['maxlength']">
+            Description must not exceed 50 characters
+          </div>
+        </div>
+        <button [attr.disabled]="description?.invalid || title?.invalid ? '' : null" class="btn btn-success" (click)="addNewTaskComplete(1)">Create</button>
+        <button class="btn btn-danger mx-2" (click)="addNewTaskComplete(0)">Cancel</button>
+    </div>
+  </div>
+
+
+

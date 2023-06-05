@@ -1,0 +1,29 @@
+<div class=" mb-3">
+    <div class="d-flex justify-content-between"  data-bs-toggle="collapse">
+      <div class="d-flex align-items-center">
+        <input class="form-check-input" type="checkbox" *ngIf="!isEditMode" [checked]="task.completed" (change)="onCheckboxChange($event)">
+        <h5 class="mb-0 mx-2"  [ngClass]="{'text-muted font-weight-light' : task.completed}" *ngIf="!isEditMode">{{ task.title }}</h5>
+
+        <input type="text" class="form-control" [(ngModel)]="updatedTitle" *ngIf="isEditMode">
+      </div>
+      <div>
+        <div *ngIf="isEditMode">
+          <button type="button" class="btn btn-sm btn-success mx-1"   (click)="onSaveChanges()">Save</button>
+          <button type="button" class="btn btn-sm btn-danger ml-auto"  (click)="onCancelChanges()">Cancel</button>
+        </div>
+        <div *ngIf="!isEditMode">
+          <button type="button" class="btn btn-sm btn-outline-info mx-1" (click)="onEditTask()" ><i class="bi bi-pen"></i></button>
+          <button type="button" class="btn btn-sm btn-outline-danger ml-auto" (click)="onDelete()"><i class="bi bi-trash3"></i></button>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="collapse" [ngClass]="{ 'show': !task.completed }">
+      <div class="mt-3">
+        <p *ngIf="!isEditMode">{{ task.description }}</p>
+        <textarea class="form-control" [(ngModel)]="updatedDescription" *ngIf="isEditMode"></textarea>
+
+      </div>
+    </div>
+</div>

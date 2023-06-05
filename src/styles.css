@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  height: 100vh;
+  background-color: #333333;
+}
+app-root{
+  height: 100%;
+  display: flex; /* Enable flexbox layout */
+  flex-direction: column; /* Arrange child elements in a column */
+}
+
