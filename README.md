@@ -1,7 +1,7 @@
-# Project Title
+# PTodo tasks
 
 ## Description
-[Insert a brief description or introduction of your project]
+This application handles the modification and storing of simple tasks
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,13 +13,13 @@
 ## Installation
 
 1. Clone the repository:
-    ```bash
-   git clone https://github.com/vardjaklap/TodoFront.git
-   ```
+```bash
+git clone https://github.com/vardjaklap/TodoFront.git
+```
 2. Navigate inside the project
  ```bash
-   cd TodoFront
-   ```
+cd TodoFront
+```
 3. Install the dependencies:
 
  ```bash
@@ -30,7 +30,7 @@ npm install
 1. To start the development server:
  ```bash
 npm start
-   ```
+```
 Access the website on http://localhost:4200/ 
 
 To function this application also requires server side from https://github.com/vardjaklap/TodoBack 
@@ -39,6 +39,7 @@ To function this application also requires server side from https://github.com/v
  ```bash
 ng test
    ```
+   (Requires angular CLI)
 
 ## Features
 
